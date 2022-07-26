@@ -56,14 +56,10 @@ const LogString *climate_fan_mode_to_string(ClimateFanMode fan_mode) {
       return LOG_STR("MEDIUM");
     case climate::CLIMATE_FAN_HIGH:
       return LOG_STR("HIGH");
-    case climate::CLIMATE_FAN_MIDDLE:
-      return LOG_STR("MIDDLE");
-    case climate::CLIMATE_FAN_FOCUS:
-      return LOG_STR("FOCUS");
-    case climate::CLIMATE_FAN_DIFFUSE:
-      return LOG_STR("DIFFUSE");
     case climate::CLIMATE_FAN_QUIET:
       return LOG_STR("QUIET");
+    case climate::CLIMATE_FAN_TURBO:
+      return LOG_STR("TURBO");
     default:
       return LOG_STR("UNKNOWN");
   }
@@ -77,8 +73,18 @@ const LogString *climate_swing_mode_to_string(ClimateSwingMode swing_mode) {
       return LOG_STR("BOTH");
     case climate::CLIMATE_SWING_VERTICAL:
       return LOG_STR("VERTICAL");
-    case climate::CLIMATE_SWING_HORIZONTAL:
-      return LOG_STR("HORIZONTAL");
+    case climate::CLIMATE_SWING_AUTO:
+      return LOG_STR("AUTO");
+    case climate::CLIMATE_SWING_OUT:
+      return LOG_STR("OUT");
+    case climate::CLIMATE_SWING_HIGH:
+      return LOG_STR("HIGH");
+    case climate::CLIMATE_SWING_MID:
+      return LOG_STR("MID");
+    case climate::CLIMATE_SWING_LOW:
+      return LOG_STR("LOW");
+    case climate::CLIMATE_SWING_DOWN:
+      return LOG_STR("DOWN");
     default:
       return LOG_STR("UNKNOWN");
   }

@@ -28,9 +28,9 @@ namespace climate {
  *  - supports action - if the climate device supports reporting the active
  *    current action of the device with the action property.
  *  - supports fan modes - optionally, if it has a fan which can be configured in different ways:
- *    - on, off, auto, high, medium, low, middle, focus, diffuse, quiet
+ *    - on, off, auto, high, medium, low, quiet, turbo
  *  - supports swing modes - optionally, if it has a swing which can be configured in different ways:
- *    - off, both, vertical, horizontal
+ *    - off, auto, out, high, mid, low, down, vertical, both
  *
  * This class also contains static data for the climate device display:
  *  - visual min/max temperature - tells the frontend what range of temperatures the climate device

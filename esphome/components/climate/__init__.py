@@ -76,10 +76,8 @@ CLIMATE_FAN_MODES = {
     "LOW": ClimateFanMode.CLIMATE_FAN_LOW,
     "MEDIUM": ClimateFanMode.CLIMATE_FAN_MEDIUM,
     "HIGH": ClimateFanMode.CLIMATE_FAN_HIGH,
-    "MIDDLE": ClimateFanMode.CLIMATE_FAN_MIDDLE,
-    "FOCUS": ClimateFanMode.CLIMATE_FAN_FOCUS,
-    "DIFFUSE": ClimateFanMode.CLIMATE_FAN_DIFFUSE,
     "QUIET": ClimateFanMode.CLIMATE_FAN_QUIET,
+    "TURBO": ClimateFanMode.CLIMATE_FAN_TURBO,
 }
 
 validate_climate_fan_mode = cv.enum(CLIMATE_FAN_MODES, upper=True)
@@ -101,9 +99,14 @@ validate_climate_preset = cv.enum(CLIMATE_PRESETS, upper=True)
 ClimateSwingMode = climate_ns.enum("ClimateSwingMode")
 CLIMATE_SWING_MODES = {
     "OFF": ClimateSwingMode.CLIMATE_SWING_OFF,
+    "AUTO": ClimateSwingMode.CLIMATE_SWING_AUTO,
+    "OUT": ClimateSwingMode.CLIMATE_SWING_OUT,
+    "HIGH": ClimateSwingMode.CLIMATE_SWING_HIGH,
+    "MID": ClimateSwingMode.CLIMATE_SWING_MID,
+    "LOW": ClimateSwingMode.CLIMATE_SWING_LOW,
+    "DOWN": ClimateSwingMode.CLIMATE_SWING_DOWN,
     "BOTH": ClimateSwingMode.CLIMATE_SWING_BOTH,
     "VERTICAL": ClimateSwingMode.CLIMATE_SWING_VERTICAL,
-    "HORIZONTAL": ClimateSwingMode.CLIMATE_SWING_HORIZONTAL,
 }
 
 validate_climate_swing_mode = cv.enum(CLIMATE_SWING_MODES, upper=True)

@@ -172,14 +172,10 @@ ClimateCall &ClimateCall::set_fan_mode(const std::string &fan_mode) {
     this->set_fan_mode(CLIMATE_FAN_MEDIUM);
   } else if (str_equals_case_insensitive(fan_mode, "HIGH")) {
     this->set_fan_mode(CLIMATE_FAN_HIGH);
-  } else if (str_equals_case_insensitive(fan_mode, "MIDDLE")) {
-    this->set_fan_mode(CLIMATE_FAN_MIDDLE);
-  } else if (str_equals_case_insensitive(fan_mode, "FOCUS")) {
-    this->set_fan_mode(CLIMATE_FAN_FOCUS);
-  } else if (str_equals_case_insensitive(fan_mode, "DIFFUSE")) {
-    this->set_fan_mode(CLIMATE_FAN_DIFFUSE);
   } else if (str_equals_case_insensitive(fan_mode, "QUIET")) {
     this->set_fan_mode(CLIMATE_FAN_QUIET);
+  } else if (str_equals_case_insensitive(fan_mode, "TURBO")) {
+    this->set_fan_mode(CLIMATE_FAN_TURBO);
   } else {
     if (this->parent_->get_traits().supports_custom_fan_mode(fan_mode)) {
       this->custom_fan_mode_ = fan_mode;
@@ -241,12 +237,22 @@ ClimateCall &ClimateCall::set_swing_mode(ClimateSwingMode swing_mode) {
 ClimateCall &ClimateCall::set_swing_mode(const std::string &swing_mode) {
   if (str_equals_case_insensitive(swing_mode, "OFF")) {
     this->set_swing_mode(CLIMATE_SWING_OFF);
-  } else if (str_equals_case_insensitive(swing_mode, "BOTH")) {
-    this->set_swing_mode(CLIMATE_SWING_BOTH);
+  } else if (str_equals_case_insensitive(swing_mode, "AUTO")) {
+    this->set_swing_mode(CLIMATE_SWING_AUTO);
+  } else if (str_equals_case_insensitive(swing_mode, "OUT")) {
+    this->set_swing_mode(CLIMATE_SWING_OUT);
+  } else if (str_equals_case_insensitive(swing_mode, "HIGH")) {
+    this->set_swing_mode(CLIMATE_SWING_HIGH);
+  } else if (str_equals_case_insensitive(swing_mode, "MID")) {
+    this->set_swing_mode(CLIMATE_SWING_MID);
+  } else if (str_equals_case_insensitive(swing_mode, "LOW")) {
+    this->set_swing_mode(CLIMATE_SWING_LOW);
+  } else if (str_equals_case_insensitive(swing_mode, "DOWN")) {
+    this->set_swing_mode(CLIMATE_SWING_DOWN);
   } else if (str_equals_case_insensitive(swing_mode, "VERTICAL")) {
     this->set_swing_mode(CLIMATE_SWING_VERTICAL);
-  } else if (str_equals_case_insensitive(swing_mode, "HORIZONTAL")) {
-    this->set_swing_mode(CLIMATE_SWING_HORIZONTAL);
+  } else if (str_equals_case_insensitive(swing_mode, "BOTH")) {
+    this->set_swing_mode(CLIMATE_SWING_BOTH);
   } else {
     ESP_LOGW(TAG, "'%s' - Unrecognized swing mode %s", this->parent_->get_name().c_str(), swing_mode.c_str());
   }

@@ -56,26 +56,32 @@ enum ClimateFanMode : uint8_t {
   CLIMATE_FAN_MEDIUM = 4,
   /// The fan mode is set to High
   CLIMATE_FAN_HIGH = 5,
-  /// The fan mode is set to Middle
-  CLIMATE_FAN_MIDDLE = 6,
-  /// The fan mode is set to Focus
-  CLIMATE_FAN_FOCUS = 7,
-  /// The fan mode is set to Diffuse
-  CLIMATE_FAN_DIFFUSE = 8,
   /// The fan mode is set to Quiet
-  CLIMATE_FAN_QUIET = 9,
+  CLIMATE_FAN_QUIET = 6,
+  /// The fan mode is set to Turbo
+  CLIMATE_FAN_TURBO = 7,
 };
 
 /// Enum for all modes a climate swing can be in
 enum ClimateSwingMode : uint8_t {
   /// The swing mode is set to Off
   CLIMATE_SWING_OFF = 0,
-  /// The fan mode is set to Both
-  CLIMATE_SWING_BOTH = 1,
-  /// The fan mode is set to Vertical
-  CLIMATE_SWING_VERTICAL = 2,
-  /// The fan mode is set to Horizontal
-  CLIMATE_SWING_HORIZONTAL = 3,
+  /// The vertical angle is set to 1
+  CLIMATE_SWING_OUT = 1,
+  /// The vertical angle is set to 2
+  CLIMATE_SWING_HIGH = 2,
+  /// The vertical angle is set to 3
+  CLIMATE_SWING_MID = 3,
+  /// The vertical angle is set to 4
+  CLIMATE_SWING_LOW = 4,
+  /// The vertical angle is set to 5
+  CLIMATE_SWING_DOWN = 5,
+  /// The swing mode is set to Auto
+  CLIMATE_SWING_AUTO = 6,
+  /// The vertical angle is set to Swing
+  CLIMATE_SWING_VERTICAL = 7,
+  /// The vertical and horizontal angle is set to Swing
+  CLIMATE_SWING_BOTH = 8,
 };
 
 /// Enum for all preset modes

@@ -90,6 +90,7 @@ HttpResponse HttpRequestIDF::send() {
   config.max_redirection_count = this->redirect_limit_;
   config.user_data = reinterpret_cast<void *>(&response);
   config.event_handler = &http_event_handler;
+  config.buffer_size_tx = 2048;
 
   if (this->useragent_ != nullptr) {
     config.user_agent = this->useragent_;

@@ -48,6 +48,8 @@ CONF_SOFTWARE_COEXISTENCE = "software_coexistence"
 
 DEFAULT_MAX_CONNECTIONS = 3
 IDF_MAX_CONNECTIONS = 9
+CONF_ALLOWLIST_ADDRESS = "allowlist_address"
+MAX_ALLOWLIST = 10
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -167,6 +169,10 @@ CONFIG_SCHEMA = cv.All(
                         ): cv.positive_time_period_milliseconds,
                         cv.Optional(CONF_ACTIVE, default=True): cv.boolean,
                         cv.Optional(CONF_CONTINUOUS, default=True): cv.boolean,
+                        cv.Optional(CONF_ALLOWLIST_ADDRESS): cv.All(
+                            cv.ensure_list(cv.mac_address),
+                            cv.Length(min=1, max=MAX_ALLOWLIST),
+                        ),
                     }
                 ),
                 validate_scan_parameters,
@@ -274,6 +280,12 @@ async def to_code(config):
     cg.add(var.set_scan_window(int(params[CONF_WINDOW].total_milliseconds / 0.625)))
     cg.add(var.set_scan_active(params[CONF_ACTIVE]))
     cg.add(var.set_scan_continuous(params[CONF_CONTINUOUS]))
+    if CONF_ALLOWLIST_ADDRESS in params:
+        allowlist_addr_list = []
+        for it in params[CONF_ALLOWLIST_ADDRESS]:
+            allowlist_addr_list.append(it.as_hex)
+        cg.add(var.set_allowlist_addresses(allowlist_addr_list))
+
     for conf in config.get(CONF_ON_BLE_ADVERTISE, []):
         trigger = cg.new_Pvariable(conf[CONF_TRIGGER_ID], var)
         if CONF_MAC_ADDRESS in conf:

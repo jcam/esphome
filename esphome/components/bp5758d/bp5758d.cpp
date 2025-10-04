@@ -39,6 +39,8 @@ void BP5758D::loop() {
   if (!this->update_)
     return;
 
+  ESP_LOGD(TAG, "WriteColors: %i %i %i %i %i", pwm_amounts_[0], pwm_amounts_[1], pwm_amounts_[2], pwm_amounts_[3], pwm_amounts_[4]);
+
   uint8_t data[17];
   if (this->pwm_amounts_[0] == 0 && this->pwm_amounts_[1] == 0 && this->pwm_amounts_[2] == 0 &&
       this->pwm_amounts_[3] == 0 && this->pwm_amounts_[4] == 0) {
